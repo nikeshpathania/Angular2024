@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
-  @Input() avatar!: string;
-  @Input() name!: string;
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
 
   get imagePath() {
     // Get Image Path through getter
