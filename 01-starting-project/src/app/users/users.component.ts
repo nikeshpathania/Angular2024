@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-users',
   standalone: true,
@@ -7,12 +7,13 @@ import { Component, computed, input } from '@angular/core';
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
-  avatar = input<string>();
-  name = input<string>();
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
 
-  imagePath = computed(() => {
-    return 'assets/users/' + this.avatar();
-  });
+  // Get Is used for getter Computed image
+  get imagePath() {
+    return 'assets/users/' + this.avatar;
+  }
 
   onSelectUser() {}
 }
