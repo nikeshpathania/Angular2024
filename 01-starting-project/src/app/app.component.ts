@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { HeaderComponent } from './header/header.component';
 import { UsersComponent } from './users/users.component';
 import { DUMMY_USERS } from './dummy-users';
@@ -12,5 +11,5 @@ import { DUMMY_USERS } from './dummy-users';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users = DUMMY_USERS;
+  users =  DUMMY_USERS
 }

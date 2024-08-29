@@ -1,4 +1,7 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
+import { DUMMY_USERS } from '../dummy-users';
+// Intialised Index when component is load
+const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'app-users',
@@ -8,18 +11,26 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
+  selectedUser = signal(DUMMY_USERS[randomIndex]);
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
 
-  avatar = input<string>();
-  name = input<string>();
+  currentIndex: number = 0;
 
-  get imagePath() {
-    // Get Image Path through getter
-    return 'assets/users/' + this.avatar();
+  @Input() avatar!: string;
+
+  // get imagePath() {
+  //   // Get Image Path through getter
+  //   return 'assets/users/' + this.selectedUser.avatar;
+  // }
+
+  selectUser() {
+    // Rediclare randomIndex for scope based when click on selectUser method
+    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+    this.selectedUser.set(DUMMY_USERS[randomIndex]);
   }
 
-  onSelectUser() {
-    //this.currentIndex = (this.currentIndex + 1) % DUMMY_USERS.length;
-  }
+  /*selectUser() {
+    this.selectedUser.set(DUMMY_USERS[this.currentIndex]);
+    this.currentIndex = (this.currentIndex + 1) % DUMMY_USERS.length;
+  }*/
 }
