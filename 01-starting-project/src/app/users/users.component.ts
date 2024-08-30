@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-users',
   standalone: true,
@@ -7,13 +7,18 @@ import { Component, Input } from '@angular/core';
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
+  @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
+
+  @Output() select = new EventEmitter();
 
   // Get Is used for getter Computed image
   get imagePath() {
     return 'assets/users/' + this.avatar;
   }
 
-  onSelectUser() {}
+  onSelectUser() {
+    this.select.emit(this.id);
+  }
 }

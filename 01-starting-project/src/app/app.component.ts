@@ -11,5 +11,9 @@ import { DUMMY_USERS } from './dummy-users';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users =  DUMMY_USERS
+  users = DUMMY_USERS;
+
+  selectUser(id: string) {
+    console.log('Selected user ' + id);
+  }
 }
