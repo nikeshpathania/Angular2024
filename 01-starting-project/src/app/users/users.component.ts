@@ -14,23 +14,18 @@ import {
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
-  // @Input({ required: true }) id!: string;
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
+  @Input({ required: true }) id!: string;
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
 
-  // @Output() select = new EventEmitter();
-  // id = input.required<string>();
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
-  select = output<string>();
+  @Output() select = new EventEmitter();
 
   // Get Is used for getter Computed image
   get imagePath() {
-    return 'assets/users/' + this.avatar();
+    return 'assets/users/' + this.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id());
+    this.select.emit(this.id);
   }
 }
