@@ -2,19 +2,16 @@
 <main>
   <ul id="users">
     <!-- User For Loop and track  -->
-    <!-- @for(user of users; track user.id) { -->
-    <li *ngFor="let user of users">
+    @for(user of users; track user.id) {
+    <li>
       <app-users [user]="user" (select)="onSelectUser($event)" />
     </li>
-    <!-- } -->
+    }
   </ul>
   <!-- If User bydefault is not selected  then default data is coming from else part-->
-  <!-- @if(selectedUser){ -->
-  <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser.name" />
-  <!-- } @else { -->
-  <ng-template #fallback>
-    <p id="fallback">A Select user from this list</p>
-  </ng-template>
-
-  <!-- } -->
+  @if(selectedUser){
+  <app-tasks [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">A Select user from this list</p>
+  }
 </main>
