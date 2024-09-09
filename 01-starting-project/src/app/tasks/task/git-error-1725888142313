@@ -1,4 +1,0 @@
-> git pull --tags origin 46-Outputting-task-data-in-the-task-component
-error: You have not concluded your merge (MERGE_HEAD exists).
-hint: Please, commit your changes before merging.
-fatal: Exiting because of unfinished merge.
