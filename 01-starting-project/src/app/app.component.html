@@ -10,7 +10,7 @@
   </ul>
   <!-- If User bydefault is not selected  then default data is coming from else part-->
   @if(selectedUser){
-  <app-tasks [name]="selectedUser.name" />
+  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
   } @else {
   <p id="fallback">A Select user from this list</p>
   }
