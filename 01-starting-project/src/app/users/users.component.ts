@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 
-import { User } from './user.model';
+import { type User } from './user.model';
 
 @Component({
   selector: 'app-users',
@@ -18,7 +18,7 @@ import { User } from './user.model';
 })
 export class UsersComponent {
   @Input({ required: true }) user!: User;
-
+  @Input({ required: true }) selected!: boolean;
   @Output() select = new EventEmitter();
 
   // Get Is used for getter Computed image
