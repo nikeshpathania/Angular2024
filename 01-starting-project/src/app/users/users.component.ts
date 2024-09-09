@@ -6,6 +6,21 @@ import {
   output,
   Output,
 } from '@angular/core';
+
+// Type vs Interface Statutement 
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// };
+
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
+
 @Component({
   selector: 'app-users',
   standalone: true,
@@ -14,15 +29,7 @@ import {
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
-  // @Input({ required: true }) id!: string;
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
-
-  @Input({ required: true }) user!: {
-    id: string;
-    avatar: string;
-    name: string;
-  };
+  @Input({ required: true }) user!: User;
 
   @Output() select = new EventEmitter();
 
